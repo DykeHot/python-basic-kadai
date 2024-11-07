@@ -1,4 +1,5 @@
 def trapezoid(upper = 1, lower = 1, height = 1):
     return (upper + lower) * height / 2
 
-print(trapezoid(10, 20, 5), "cm²")
+kadai05 = trapezoid(10, 20, 5)
+print(str(kadai05) + "cm²")
