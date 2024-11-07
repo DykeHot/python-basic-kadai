@@ -1,0 +1,22 @@
+var = int(input("Input a integer."))
+ret = ""
+
+def mullet (number, mullet, letter):
+    global ret
+    if number % mullet == 0:
+        ret += letter
+    else:
+        pass
+
+try:
+    mullet(var, 3, "Fizz")
+    mullet(var, 5, "Buzz")
+    if ret == "":
+        print(var)
+    else:
+        print(ret)
+    
+except:
+    print("NotIntegerError: input a INTEGER. Other kinds of variable-type are invalid.")
+
+  
