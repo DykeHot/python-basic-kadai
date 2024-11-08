@@ -1,6 +1,6 @@
 var = int(input("Input a integer."))
 
-def fbzz(multiple):
+def fbuzz(multiple):
     global var
     return var % multiple == 0
 
