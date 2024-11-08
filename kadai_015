@@ -1,0 +1,15 @@
+class Human():
+
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+        
+    def printinfo(self):
+        print(self.name, self.age)
+
+#テスト
+kyu = Human("kyu-cahn", 17)
+kyu.printinfo()
+
+sen = Human("sen-kun", 39)
+sen.printinfo()
