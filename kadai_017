@@ -1,0 +1,26 @@
+class Human():
+
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+        self.check_adult = bool(self.age >= 20)
+        
+    def printinfo(self):
+        print(self.name, self.age)
+        
+        
+
+#テスト
+kyu = Human("kyu-cahn", 17)
+kyu.printinfo()
+
+sen = Human("sen-kun", 39)
+sen.printinfo()
+
+nun = Human("Nunnun", 20)
+nun.printinfo()
+
+klass = {1: kyu, 2: sen, 3: nun}
+
+#成人の人のみ抽出する
+print([member.name for member in klass.values() if member.check_adult])
