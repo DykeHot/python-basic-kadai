@@ -1,8 +1,10 @@
 array = ["水","金","地","火","木","土","天","海","冥"]
-c = 0
-while True:
-    c += 1
-    if c == 3:
-        break;
-    for m in array:
-        print(m)
+
+#for文の場合
+for j in array * 2:
+    print(j)
+
+#while文の場合
+darray = array * 2
+while darray != []:
+    print(darray.pop(0))
