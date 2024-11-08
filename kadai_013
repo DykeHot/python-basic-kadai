@@ -1,0 +1,9 @@
+def inc_tax(price, tax_rate = 10):
+    """
+価格を税込みにするプログラム。税率はデフォルトで10％に設定されている。
+    """
+    return price * (100 + tax_rate) / 100
+
+
+#テスト
+inc_tax(100)
