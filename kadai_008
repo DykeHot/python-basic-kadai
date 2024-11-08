@@ -1,20 +1,18 @@
 var = int(input("Input a integer."))
-ret = ""
 
-def mullet (number, mullet, letter):
-    global ret
-    if number % mullet == 0:
-        ret += letter
-    else:
-        pass
+def fbzz(multiple):
+    global var
+    return var % multiple == 0
 
 try:
-    mullet(var, 3, "Fizz")
-    mullet(var, 5, "Buzz")
-    if ret == "":
-        print(var)
+    if fbuzz(3) and fbuzz(5):
+        print("FizzBuzz")
+    elif fbuzz(3):
+        print("Fizz")
+    elif fbuzz(5):
+        print("Buzz")
     else:
-        print(ret)
+        print(var)
     
 except:
     print("NotIntegerError: input a INTEGER. Other kinds of variable-type are invalid.")
