@@ -1,0 +1,16 @@
+{% extends "petit-home.html" %}
+{% load static%}
+
+{% block title %}編集{% endblock %}
+ {% block content %}
+ <h1 class = "dykeh1">編集</h1>
+ 
+ <form method="post" enctype="multipart/form-data" class = "showing">
+     {% csrf_token %}
+     {{ form.as_p }}
+     <br>
+     <div class = "pagenation">
+     <a href="{% url 'list' %}" class = "lower">戻る</a>
+    </div>
+ </form>
+ {% endblock %}　

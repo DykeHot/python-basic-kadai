@@ -1,0 +1,33 @@
+{% extends "petit-home.html"%}
+{% load static %} 
+
+
+{% block content %}
+
+<h1 class = "dykeh1">{{object.name}}の詳細</h1>
+
+<div class="showing">
+    <table class="menu">
+        <thead> <tr><th>商品名</th><th>価格</th><th>無配</th></tr></thead>
+        <tr>
+            <td>{{object.name}}</td>
+            <td>{{object.price}}円</td>
+            <td>{% if "無配" in object.name %}〇{% else %}☓{% endif %}</td>
+        </tr>
+    </table>
+
+    <script>
+        function D() {
+            alert("{{product.pk}}");
+        }
+    </script>
+
+    
+
+    <div class="pagenation">
+        <a href="{% url "list" %}" class = "lower">戻る</a>
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "petit-home.html" %}
+{% load static%}
+
+{% block title %}削除 確認{% endblock %}
+ {% block content %}
+ <h1 class = "dykeh1">削除 確認</h1>
+ 
+ <form method="post" enctype="multipart/form-data" class = "showing">
+     {% csrf_token %}
+     <h3 class = "dykeh1">消して大丈夫？</h3>
+     <br>
+     <div class = "pagenation">
+     <a href="{% url 'list' %}" class = "lower">戻る</a>
+     <input type="submit" class="btn btn-primary" value="削除" class = "lower">
+    </div>
+ </form>
+ {% endblock %}　

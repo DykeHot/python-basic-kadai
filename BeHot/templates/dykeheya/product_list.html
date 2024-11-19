@@ -1,0 +1,111 @@
+{% extends "petit-home.html"%}
+{% load static %} 
+
+
+{% block content %}
+
+<h1 class = "dykeh1">お品書き</h1>
+
+<div class="showing">
+    <table class="menu">
+        <thead> <tr><th>商品名</th><th>価格</th><th colspan = "3">その他</th></tr></thead>
+        {% for p in object_list%} <tr>
+            <td>{{ p.name }}</td>
+            <td>{{ p.price }} 円</td>
+            <td><button  onclick="location.href='{% url 'detail' pk=p.pk %}'" class = "actionbutton" id = "detail" style = "background-color: rgb(50, 96, 177); border-radius: 4px;">詳細</button></td>
+            <td><button onclick="location.href='{% url 'edit' pk=p.pk %}'" class = "actionbutton" id = "edit" style = "background-color: rgb(96, 169, 76); border-radius: 4px;">編集</button></td>
+            <td><button  onclick="location.href='{% url 'delete' pk=p.pk %}'" class = "actionbutton" id = "delete" style = "background-color: rgb(201, 55, 55); border-radius: 4px;">削除</button></td>
+        </tr>{% endfor %}
+    </table>
+
+    <script>
+        function D() {
+            alert("{{p.pk}}");
+        }
+    </script>
+
+    <div class = "zann">
+        <a href="{% url 'new' %}">新規作成</a>
+    </div>
+
+    <div class="pagenation">
+        <div class="lower">
+            {% if page_obj.has_previous %}
+            <a href="?page=1">&laquo;</a>
+            <a href="?page={{ page_obj.previous_page_number}}"><img src="../../static/previous.png" alt="" class="pagebutton"></a>
+            {% else %}
+            <p>先頭だよ</p>
+            {% endif %}
+        </div>
+        
+        <div class="lower">{{ page_obj.number }} / {{ page_obj.paginator.num_pages }} </div>
+
+        <div class="lower">
+            {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}"><img src="../../static/next.png" alt="" class="pagebutton"></a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">&raquo;</a>
+            {% else %}
+            <p>最後だよ</p>
+            {% endif %}
+        </div>
+    
+        
+        
+    </div>
+
+</div>
+
+{% endblock %}
+
+<!--
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/oshina.css' %}">
+    <title>お品書き</title>
+    
+</head>
+<body>
+    <h1 id = "circle">お品書き</h1>
+    <div class="showing">
+        <table class="menu">
+            <thead> <tr><th>商品名</th><th>価格</th></tr></thead>
+            {% for p in object_list%} <tr>
+                <td>{{ p.name }}</td>
+                <td>{{ p.price }} 円</td>
+            </tr>{% endfor %}
+        </table>
+    
+        <div class="pagenation">
+            <div class="lower">
+                {% if page_obj.has_previous %}
+                <a href="?page=1">&laquo;</a>
+                <a href="?page={{ page_obj.previous_page_number}}"><img src="../../static/previous.png" alt="" class="pagebutton"></a>
+                {% else %}
+                <p>先頭だよ</p>
+                {% endif %}
+            </div>
+            
+            <div class="lower">{{ page_obj.number }} / {{ page_obj.paginator.num_pages }} </div>
+
+            <div class="lower">
+                {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}"><img src="../../static/next.png" alt="" class="pagebutton"></a>
+                <a href="?page={{ page_obj.paginator.num_pages }}">&raquo;</a>
+                {% else %}
+                <p>最後だよ</p>
+                {% endif %}
+            </div>
+        
+            
+            
+        </div>
+
+    </div>
+</body>
+</html>
+
+-->
